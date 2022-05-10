@@ -441,13 +441,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 867106539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532432789f6a3ae468beb2378132060b, type: 3}
+  m_Script: {fileID: 11500000, guid: 868cba8cfc4a4b2f9c8738ef93d3e55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cellPrefab: {fileID: 3440005769489789097, guid: e8cbabaab0ce8fd42a7dd071c2a1fd6e, type: 3}
   autoGeneration: 0
-  timeToWaitUntilNextGen: 1
   currentTime: 0
+  timeToWaitUntilNextGen: 1
 --- !u!4 &867106541
 Transform:
   m_ObjectHideFlags: 0
@@ -630,7 +630,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 867106540}
         m_TargetAssemblyTypeName: MVP.GameOfLifeView, ScriptsAssembly
-        m_MethodName: Change
+        m_MethodName: ChangeButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
