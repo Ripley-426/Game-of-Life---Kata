@@ -7,17 +7,17 @@ namespace MVP
     public class GameOfLifePresenter: IGameOfLifePresenter
     {
         private readonly IGameOfLifeView _view;
-        private readonly GameOfLife _gameOfLife;
+        private readonly IGameOfLife _gameOfLife;
         private MapToSend _currentMap;
         private ReactiveProperty<bool>[,] _cells;
         private GameObject[,] _goCells;
         private readonly Random _rnd = new Random();
 
 
-        public GameOfLifePresenter(IGameOfLifeView view)
+        public GameOfLifePresenter(IGameOfLifeView view, IGameOfLife gameOfLife)
         {
             _view = view;
-            _gameOfLife = new GameOfLife(new Map(30, 30));
+            _gameOfLife = gameOfLife;
             _currentMap = _gameOfLife.GetCurrentMap();
             SetupCells();
             PopulateCellsWithMapData();
@@ -27,7 +27,7 @@ namespace MVP
         {
             for (int i = 0; i < 50; i++)
             {
-                ChangeCellAndUpdateMap(_rnd.Next(0,_currentMap.Height-1), _rnd.Next(0,_currentMap.Width-1));
+                ChangeCellAndUpdateMap(_rnd.Next(0,_currentMap.Height), _rnd.Next(0,_currentMap.Width));
             }
         }
 

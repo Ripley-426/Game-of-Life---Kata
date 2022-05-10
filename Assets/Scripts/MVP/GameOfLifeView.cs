@@ -13,7 +13,8 @@ namespace MVP
 
         private void Awake()
         {
-            _presenter = new GameOfLifePresenter(this);
+            GameOfLifeService gameOfLifeService = new GameOfLifeService();
+            _presenter = new GameOfLifePresenter(this, gameOfLifeService.GetDefaultMap());
         }
         
         private void Update()

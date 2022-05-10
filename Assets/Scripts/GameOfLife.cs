@@ -1,4 +1,4 @@
-public class GameOfLife
+public class GameOfLife: IGameOfLife
 {
     private readonly IMap _map;
 
