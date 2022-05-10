@@ -5,14 +5,14 @@ public class Map: IMap, ICloneable
 {
     private readonly int _height;
     private readonly int _width;
-    private Cell[,] _cells;
+    private ICell[,] _cells;
     private int _generation = 1;
 
     public Map(int height, int width)
     {
         _height = height;
         _width = width;
-        _cells = new Cell[height, width];
+        _cells = new ICell[height, width];
         PopulateCells();
     }
 
@@ -50,7 +50,7 @@ public class Map: IMap, ICloneable
 
     private void UpdateCells()
     {
-        Cell[,] updatedCells = new Cell[_height, _width];
+        ICell[,] updatedCells = new ICell[_height, _width];
         for (int i = 0; i < _width; i++)
         {
             for (int j = 0; j < _height; j++)

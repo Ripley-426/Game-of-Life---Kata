@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class Cell: ICloneable
+public class Cell: ICloneable, ICell
 {
     private bool _isAlive = false;
 
@@ -9,24 +9,14 @@ public class Cell: ICloneable
         return _isAlive;
     }
 
-    public void Revive()
+    public void SwitchState()
     {
-        _isAlive = true;
+        if (_isAlive) { Die(); } else { Revive(); }
     }
 
-    public void Die()
+    public ICell CheckGenerationOutcome(int aliveNeighbours)
     {
-        _isAlive = false;
-    }
-
-    public object Clone()
-    {
-        return MemberwiseClone();
-    }
-
-    public Cell CheckGenerationOutcome(int aliveNeighbours)
-    {
-        Cell outcomeCell = (Cell) Clone();
+        ICell outcomeCell = (ICell) Clone();
         
         if (IsAlive())
         {
@@ -46,8 +36,18 @@ public class Cell: ICloneable
         return outcomeCell;
     }
 
-    public void SwitchState()
+    private void Revive()
     {
-        if (_isAlive) { Die(); } else { Revive(); }
+        _isAlive = true;
+    }
+
+    private void Die()
+    {
+        _isAlive = false;
+    }
+
+    public object Clone()
+    {
+        return MemberwiseClone();
     }
 }

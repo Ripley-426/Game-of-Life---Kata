@@ -5,7 +5,7 @@ namespace Tests
 {
     public class CellShould
     {
-        private Cell _cell;
+        private ICell _cell;
         private int _aliveNeighbourCells;
 
         [SetUp]
@@ -24,23 +24,23 @@ namespace Tests
         [Test]
         public void BeAbleToComeToLife()
         {
-            _cell.Revive();
+            _cell.SwitchState();
             Assert.IsTrue(_cell.IsAlive());
         }
 
         [Test]
         public void BeAbleToDieAgain()
         {
-            _cell.Revive();
-            _cell.Die();
+            _cell.SwitchState();
+            _cell.SwitchState();
             Assert.IsFalse(_cell.IsAlive());
         }
 
         [Test]
         public void DieIfNotEnoughNearbyLiveCells()
         {
-            _cell.Revive();
-            Cell updatedCell = _cell.CheckGenerationOutcome(_aliveNeighbourCells);
+            _cell.SwitchState();
+            ICell updatedCell = _cell.CheckGenerationOutcome(_aliveNeighbourCells);
             
             Assert.IsFalse(updatedCell.IsAlive());
         }
@@ -48,7 +48,7 @@ namespace Tests
         [Test]
         public void ContinueToLiveIfCorrectAmountOfNeighbours()
         {
-            _cell.Revive();
+            _cell.SwitchState();
             _aliveNeighbourCells = 2;
             
             _cell.CheckGenerationOutcome(_aliveNeighbourCells);
@@ -59,10 +59,10 @@ namespace Tests
         [Test]
         public void DieIfTooManyNeighbours()
         {
-            _cell.Revive();
+            _cell.SwitchState();
             _aliveNeighbourCells = 4;
             
-            Cell updatedCell = _cell.CheckGenerationOutcome(_aliveNeighbourCells);
+            ICell updatedCell = _cell.CheckGenerationOutcome(_aliveNeighbourCells);
             
             Assert.IsFalse(updatedCell.IsAlive());
         }
@@ -72,7 +72,7 @@ namespace Tests
         {
             _aliveNeighbourCells = 3;
             
-            Cell updatedCell = _cell.CheckGenerationOutcome(_aliveNeighbourCells);
+            ICell updatedCell = _cell.CheckGenerationOutcome(_aliveNeighbourCells);
             
             Assert.IsTrue(updatedCell.IsAlive());
         }
