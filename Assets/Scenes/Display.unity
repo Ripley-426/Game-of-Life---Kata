@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 435608475}
   - component: {fileID: 435608474}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Pass Generation Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -447,7 +447,7 @@ MonoBehaviour:
   cellPrefab: {fileID: 3440005769489789097, guid: e8cbabaab0ce8fd42a7dd071c2a1fd6e, type: 3}
   autoGeneration: 0
   currentTime: 0
-  timeToWaitUntilNextGen: 1
+  timeToWaitUntilNextGen: 0.1
 --- !u!4 &867106541
 Transform:
   m_ObjectHideFlags: 0
@@ -691,7 +691,7 @@ GameObject:
   - component: {fileID: 1515475882}
   - component: {fileID: 1515475881}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Auto Gen Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
