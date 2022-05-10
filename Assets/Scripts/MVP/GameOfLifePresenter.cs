@@ -27,7 +27,7 @@ namespace MVP
         {
             for (int i = 0; i < 50; i++)
             {
-                ChangeCellAndUpdateMap(_rnd.Next(0,29), _rnd.Next(0,29));
+                ChangeCellAndUpdateMap(_rnd.Next(0,_currentMap.Height-1), _rnd.Next(0,_currentMap.Width-1));
             }
         }
 
